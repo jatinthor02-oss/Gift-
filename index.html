@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🌹 A Gift For You</title>
+<title>A Gift For You🌹</title>
 
 <!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
@@ -120,7 +120,7 @@ body {
     <div class="ribbonV"></div>
     <div class="ribbonH"></div>
   </div>
-  <div id="tryText">Tap on the box🙄</div>
+  <div id="tryText">Keep try.. 😁</div>
 </div>
 
 <div id="final">
@@ -132,12 +132,15 @@ body {
 
 <script>
 const messages = [
-  "Hyy Baby💕",
-  "Today's is rose day✨",
-  "Ab vaise to tum..",
-  "Poora bouquet💐 Deserve karti ho... ",
-  "Naa ki ek single Rose 🌹",
-  "So I was thinking...",
+  "Hyy Baby 💕",
+  "Today's is Rose🌹 day",
+  "Dekho vaise to..",
+  "Ek single rose🌹 se kaam nhi chalega kyuki..",
+  "Tum poora bouquet💐 deserve karti ho.",
+  "Ha thoda same hai jo tum soch rhi thi ki kya hoga",
+  "Vaise itna acha nhi hai",
+  "Par thoda bahot bana diya..🙄",
+  "Tap the box to open it.",
 ];
 
 let text = document.getElementById("text");
@@ -193,7 +196,7 @@ function startFlowers() {
     for(let i=0;i<12;i++){
       let f = document.createElement("div");
       f.className = "flower";
-      f.innerHTML = ["🌹","🌺","💖","🏵️","💐","🌷","🪷","🌸","💮","🪻,"🌻","🌼","🤍"][Math.floor(Math.random()*4)];
+      f.innerHTML = ["🌹","🌺","💖","❤️","🤍","💐","💮","🌷","🪷","🌸","🏵️","🪻","🌻","🌼"][Math.floor(Math.random()*4)];
       f.style.left = Math.random()*100 + "vw";
       f.style.animationDuration = (3 + Math.random()*3) + "s";
       document.body.appendChild(f);
@@ -203,222 +206,5 @@ function startFlowers() {
 }
 </script>
 
-</body>
-</html></style>
-</head>
-
-<body>
-
-<div id="text"></div>
-
-<div id="boxArea">
-  <div id="giftBox">
-    <div id="lid"></div>
-    <div class="ribbonV"></div>
-    <div class="ribbonH"></div>
-  </div>
-  <div id="tryText">Keep try..🙄</div>
-</div>
-
-<div id="final">
-  <img src="image.jpg" alt="Rose Day">
-  <h1>Wish you a Happy Rose Day 🌹</h1>
-</div>
-
-<audio id="music" src="music.mp3"></audio>
-
-<script>
-const messages = [
-  "  "Hyy Baby💕",
-  "Today's is rose day✨",
-  "Ab vaise to tum..",
-  "Poora bouquet💐 Deserve karti ho... ",
-  "Naa ki ek single Rose 🌹",
-  "So I was thinking...",
-];
-
-let text = document.getElementById("text");
-let index = 0;
-
-function showText() {
-  if(index < messages.length) {
-    text.innerHTML = messages[index];
-    text.style.opacity = 1;
-    setTimeout(() => text.style.opacity = 0, 2000);
-    index++;
-    setTimeout(showText, 2500);
-  } else {
-    text.style.display = "none";
-    document.getElementById("boxArea").style.display = "flex";
-  }
-}
-
-showText();
-
-let clicks = 0;
-let musicPlayed = false;
-
-document.getElementById("giftBox").onclick = () => {
-  clicks++;
-
-  if(!musicPlayed) {
-    document.getElementById("music").play();
-    musicPlayed = true;
-  }
-
-  if(clicks >= 2) {
-    document.getElementById("tryText").style.display = "block";
-  }
-
-  if(clicks < 10) {
-    document.getElementById("giftBox").style.transform =
-      "rotate(" + (Math.random()*10 - 5) + "deg)";
-  }
-
-  if(clicks === 10) openBox();
-};
-
-function openBox() {
-  document.getElementById("lid").style.transform = "rotateX(150deg)";
-  document.getElementById("boxArea").style.display = "none";
-  document.getElementById("final").style.display = "block";
-  startFlowers();
-}
-
-function startFlowers() {
-  setInterval(() => {
-    for(let i=0;i<12;i++){
-      let f = document.createElement("div");
-      f.className = "flower";
-      f.innerHTML = ["🌹","🌺","💖","❤️"][Math.floor(Math.random()*4)];
-      f.style.left = Math.random()*100 + "vw";
-      f.style.animationDuration = (3 + Math.random()*3) + "s";
-      document.body.appendChild(f);
-      setTimeout(() => f.remove(), 6000);
-    }
-  }, 300);
-}
-</script>
-
-</body>
-</html>
-<style>
-/* 🌸 PARTICLES */
-.particle{
-  position:fixed;
-  font-size:28px;
-  animation:fall 4s linear infinite;
-}
-
-@keyframes fall{
-  0%{transform:translateY(-10vh);}
-  100%{transform:translateY(110vh);}
-}
-
-/* FINAL */
-#final{
-  display:none;
-}
-
-#final img{
-  width:300px;
-  max-width:85vw;
-  margin-top:20px;
-  border-radius:12px;
-  box-shadow:0 0 30px pink;
-}
-
-#final h2{
-  font-family:'Great Vibes', cursive;
-  font-size:clamp(28px, 5vw, 46px);
-  margin-top:15px;
-}
-</style>
-</head>
-
-<body>
-<div id="container">
-  <div id="text"></div>
-
-  <div id="box">
-    <div class="ribbon"></div>
-  </div>
-
-  <div id="try">Keep trying 😁</div>
-
-  <div id="final">
-    <img src="image.jpg">
-    <h2>Wish you a Happy Rose Day 🌹🌺</h2>
-  </div>
-</div>
-
-<audio id="music" src="music.mp3"></audio>
-
-<script>
-const messages=[
-  "Hyy 💖",
-  "How are you?",
-  "I can't give you roses online 🌹",
-  "But I can do something special ✨",
-  "Here is a gift for you, open it 🎁"
-];
-
-let i=0;
-let clicks=0;
-
-const text=document.getElementById("text");
-const box=document.getElementById("box");
-const tryText=document.getElementById("try");
-const final=document.getElementById("final");
-const music=document.getElementById("music");
-
-function showText(){
-  if(i<messages.length){
-    text.style.opacity=0;
-    setTimeout(()=>{
-      text.innerText=messages[i];
-      text.style.animation="none";
-      void text.offsetWidth;
-      text.style.animation="fade 3.5s forwards";
-      i++;
-      setTimeout(showText,2000);
-    },500);
-  }else{
-    box.style.display="block";
-  }
-}
-showText();
-
-box.onclick=()=>{
-  clicks++;
-  box.classList.add("shake");
-  setTimeout(()=>box.classList.remove("shake"),400);
-
-  if(clicks>=5 && clicks<10){
-    tryText.style.display="block";
-  }
-
-  if(clicks===10){
-    box.style.display="none";
-    tryText.style.display="none";
-    final.style.display="block";
-    music.play();
-    createParticles();
-  }
-};
-
-function createParticles(){
-  const flowers=["🌹","🌺","🌸","💖","❤️"];
-  for(let i=0;i<150;i++){
-    const p=document.createElement("div");
-    p.className="particle";
-    p.innerText=flowers[Math.floor(Math.random()*flowers.length)];
-    p.style.left=Math.random()*100+"vw";
-    p.style.animationDuration=3+Math.random()*3+"s";
-    document.body.appendChild(p);
-    setTimeout(()=>p.remove(),6000);
-  }
-}
-</script>
 </body>
 </html>
