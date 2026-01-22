@@ -91,6 +91,10 @@ body {
   background: #ffd1e8;
   transform: translateY(-50%);
 }
+  
+#giftBox {
+  display: none;
+}
 
 /* SHAKE */
 .shake {
@@ -154,7 +158,7 @@ body {
 
 <div id="text"></div>
 
-<div id="giftBox">
+<div id="giftBox" style="display:none;">
   <div class="box-lid"></div>
   <div class="ribbon-vertical"></div>
   <div class="ribbon-horizontal"></div>
@@ -208,8 +212,8 @@ function showText() {
     index++;
     setTimeout(showText, 4200);
   } else {
-    textEl.style.display = "none";
-    giftBox.style.display = "block";
+    textEl.style.display = "none";   // hide text
+    giftBox.style.display = "block"; // SHOW BOX HERE ✅
   }
 }
 
