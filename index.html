@@ -203,6 +203,102 @@ function startFlowers() {
 </script>
 
 </body>
+</html></style>
+</head>
+
+<body>
+
+<div id="text"></div>
+
+<div id="boxArea">
+  <div id="giftBox">
+    <div id="lid"></div>
+    <div class="ribbonV"></div>
+    <div class="ribbonH"></div>
+  </div>
+  <div id="tryText">Keep trying 😁</div>
+</div>
+
+<div id="final">
+  <img src="image.jpg" alt="Rose Day">
+  <h1>Wish you a Happy Rose Day 🌹🌺</h1>
+</div>
+
+<audio id="music" src="music.mp3"></audio>
+
+<script>
+const messages = [
+  "Hyy 💕",
+  "How are you?",
+  "I can't give you rose online 🌹",
+  "But I can make something special",
+  "So I was thinking...",
+];
+
+let text = document.getElementById("text");
+let index = 0;
+
+function showText() {
+  if(index < messages.length) {
+    text.innerHTML = messages[index];
+    text.style.opacity = 1;
+    setTimeout(() => text.style.opacity = 0, 2000);
+    index++;
+    setTimeout(showText, 2500);
+  } else {
+    text.style.display = "none";
+    document.getElementById("boxArea").style.display = "flex";
+  }
+}
+
+showText();
+
+let clicks = 0;
+let musicPlayed = false;
+
+document.getElementById("giftBox").onclick = () => {
+  clicks++;
+
+  if(!musicPlayed) {
+    document.getElementById("music").play();
+    musicPlayed = true;
+  }
+
+  if(clicks >= 2) {
+    document.getElementById("tryText").style.display = "block";
+  }
+
+  if(clicks < 10) {
+    document.getElementById("giftBox").style.transform =
+      "rotate(" + (Math.random()*10 - 5) + "deg)";
+  }
+
+  if(clicks === 10) openBox();
+};
+
+function openBox() {
+  document.getElementById("lid").style.transform = "rotateX(150deg)";
+  document.getElementById("boxArea").style.display = "none";
+  document.getElementById("final").style.display = "block";
+  startFlowers();
+}
+
+function startFlowers() {
+  setInterval(() => {
+    for(let i=0;i<12;i++){
+      let f = document.createElement("div");
+      f.className = "flower";
+      f.innerHTML = ["🌹","🌺","💖","❤️"][Math.floor(Math.random()*4)];
+      f.style.left = Math.random()*100 + "vw";
+      f.style.animationDuration = (3 + Math.random()*3) + "s";
+      document.body.appendChild(f);
+      setTimeout(() => f.remove(), 6000);
+    }
+  }, 300);
+}
+</script>
+
+</body>
 </html>/* 🌸 PARTICLES */
 .particle{
   position:fixed;
