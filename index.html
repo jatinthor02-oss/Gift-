@@ -2,110 +2,148 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>A Small Gift For You🌹</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A Gift For You🌹</title>
 
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+<!-- WhatsApp preview -->
+<meta property="og:title" content="A Small Gift For You 🌹">
+<meta property="og:description" content="Tap to open a sweet surprise 💖">
+<meta property="og:image" content="image.jpg">
+<meta property="og:type" content="website">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
 
 <style>
-* { margin:0; padding:0; box-sizing:border-box; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
-  background: radial-gradient(circle at top, #2a001f, #000);
-  height:100vh;
-  overflow:hidden;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-family:'Great Vibes', cursive;
-  color:#ffd6e8;
+  height: 100vh;
+  background: radial-gradient(circle at top, #3a002f, #0b0010);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffd6e8;
+  font-family: 'Playfair Display', serif;
 }
 
+/* TEXT */
 #text {
-  position:absolute;
-  font-size:3rem;
-  text-align:center;
-  opacity:0;
-  transition:opacity 2s;
+  position: absolute;
+  font-size: clamp(22px, 4.5vw, 40px);
+  text-align: center;
+  opacity: 0;
+  animation: fadeText 4s ease-in-out forwards;
 }
 
-#boxArea {
-  display:none;
-  flex-direction:column;
-  align-items:center;
-  gap:20px;
+@keyframes fadeText {
+  0% { opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; }
 }
 
+/* GIFT BOX */
 #giftBox {
-  width:140px;
-  height:120px;
-  background:#ff2f92;
-  position:relative;
-  border-radius:10px;
-  cursor:pointer;
+  display: none;
+  width: 140px;
+  height: 120px;
+  background: linear-gradient(135deg, #ff2f92, #ff0077);
+  border-radius: 12px;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 0 30px rgba(255,0,150,0.6);
 }
 
-#lid {
-  position:absolute;
-  width:160px;
-  height:40px;
-  background:#ff5fb7;
-  top:-40px;
-  left:-10px;
-  border-radius:10px;
-  transform-origin:center bottom;
-  transition:transform 0.5s;
+#giftBox::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 25px;
+  background: #ff6ab0;
+  top: -25px;
+  left: 0;
+  border-radius: 12px 12px 6px 6px;
 }
 
-.ribbonV {
-  position:absolute;
-  width:20px;
-  height:120px;
-  background:#fff;
-  left:50%;
-  transform:translateX(-50%);
+.ribbon {
+  position: absolute;
+  width: 16px;
+  height: 100%;
+  background: #ffe6f2;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-.ribbonH {
-  position:absolute;
-  width:140px;
-  height:20px;
-  background:#fff;
-  top:50%;
-  transform:translateY(-50%);
+.ribbon::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 16px;
+  background: #ffe6f2;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
+/* SHAKE */
+.shake {
+  animation: giftShake 0.6s cubic-bezier(.36,.07,.19,.97);
+}
+
+@keyframes giftShake {
+  0% { transform: rotate(0deg); }
+  15% { transform: rotate(4deg); }
+  30% { transform: rotate(-4deg); }
+  45% { transform: rotate(3deg); }
+  60% { transform: rotate(-3deg); }
+  75% { transform: rotate(2deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* KEEP TRYING */
 #tryText {
-  font-size:1.8rem;
-  display:none;
+  display: none;
+  position: absolute;
+  top: 65%;
+  font-size: 22px;
+  font-family: 'Poppins', sans-serif;
 }
 
-#final {
-  display:none;
-  position:absolute;
-  text-align:center;
-}
-
-#final img {
-  width:300px;
-  border-radius:20px;
-  margin-bottom:20px;
-}
-
-#final h1 {
-  font-size:3rem;
-}
-
+/* FLOWERS */
 .flower {
-  position:absolute;
-  font-size:2rem;
-  animation:fall linear forwards;
+  position: fixed;
+  top: -50px;
+  animation: fall linear forwards;
+  pointer-events: none;
 }
 
 @keyframes fall {
-  from { transform:translateY(-10vh); opacity:1; }
-  to { transform:translateY(110vh); opacity:0; }
+  to {
+    transform: translateY(110vh);
+    opacity: 0;
+  }
+}
+
+/* FINAL IMAGE */
+#final {
+  display: none;
+  text-align: center;
+}
+
+#final img {
+  width: min(300px, 80vw);
+  border-radius: 14px;
+  box-shadow: 0 0 30px rgba(255,0,120,0.6);
+}
+
+#final h2 {
+  margin-top: 15px;
+  font-size: clamp(26px, 5vw, 42px);
 }
 </style>
 </head>
@@ -114,18 +152,15 @@ body {
 
 <div id="text"></div>
 
-<div id="boxArea">
-  <div id="giftBox">
-    <div id="lid"></div>
-    <div class="ribbonV"></div>
-    <div class="ribbonH"></div>
-  </div>
-  <div id="tryText">Keep try.. 😁</div>
+<div id="giftBox">
+  <div class="ribbon"></div>
 </div>
+
+<div id="tryText">Keep try...😁</div>
 
 <div id="final">
   <img src="image.jpg" alt="Rose Day">
-  <h1>Wish you a Happy Rose Day🌹</h1>
+  <h2>Wish you a Happy Rose Day🌹</h2>
 </div>
 
 <audio id="music" src="music.mp3"></audio>
@@ -137,72 +172,87 @@ const messages = [
   "Dekho vaise to..",
   "Ek single rose🌹 se kaam nhi chalega kyuki..",
   "Tum poora bouquet💐 deserve karti ho.",
-  "Ha thoda same hai jo tum soch rhi thi ki kya hoga",
+  "Ha thoda same hai",
+  "Jo tum soch rahi thi coding ke baare me",
   "Vaise itna acha nhi hai",
   "Par thoda bahot bana diya..🙄",
+  "itni achi codning nhi aati mujhe😂🙏🏻",
+  "To ye mat sochna ki maine code likha hai",
+  "Abhi saamne se tumhe rose nhi de skta",
+  "Par jab milunga to sab doonga🤍✨",
+  "So....",
   "Tap the box to open it.",
 ];
 
-let text = document.getElementById("text");
+const textEl = document.getElementById("text");
+const giftBox = document.getElementById("giftBox");
+const tryText = document.getElementById("tryText");
+const final = document.getElementById("final");
+const music = document.getElementById("music");
+
 let index = 0;
+let clicks = 0;
+const flowers = ["🌹","🌺","💖","❤️","🤍","💐","💮","🌷","🪷","🌸","🏵️","🪻","🌻","🌼"];
 
 function showText() {
-  if(index < messages.length) {
-    text.innerHTML = messages[index];
-    text.style.opacity = 1;
-    setTimeout(() => text.style.opacity = 0, 2000);
+  if (index < messages.length) {
+    textEl.innerText = messages[index];
+    textEl.style.opacity = 0;
+    textEl.style.animation = "none";
+    void textEl.offsetWidth;
+    textEl.style.animation = "fadeText 4s ease-in-out forwards";
     index++;
-    setTimeout(showText, 2500);
+    setTimeout(showText, 4200);
   } else {
-    text.style.display = "none";
-    document.getElementById("boxArea").style.display = "flex";
+    textEl.style.display = "none";
+    giftBox.style.display = "block";
   }
 }
 
 showText();
 
-let clicks = 0;
-let musicPlayed = false;
-
-document.getElementById("giftBox").onclick = () => {
+giftBox.addEventListener("click", () => {
   clicks++;
 
-  if(!musicPlayed) {
-    document.getElementById("music").play();
-    musicPlayed = true;
+  if (clicks === 1) {
+    music.play();
   }
 
-  if(clicks >= 2) {
-    document.getElementById("tryText").style.display = "block";
+  giftBox.classList.remove("shake");
+  void giftBox.offsetWidth;
+  giftBox.classList.add("shake");
+
+  if (clicks === 2) {
+    tryText.style.display = "block";
   }
 
-  if(clicks < 10) {
-    document.getElementById("giftBox").style.transform =
-      "rotate(" + (Math.random()*10 - 5) + "deg)";
+  if (clicks === 5) {
+    openGift();
+  }
+});
+
+function openGift() {
+  giftBox.style.display = "none";
+  tryText.style.display = "none";
+
+  for (let i = 0; i < 80; i++) {
+    setTimeout(createFlower, i * 40);
   }
 
-  if(clicks === 10) openBox();
-};
-
-function openBox() {
-  document.getElementById("lid").style.transform = "rotateX(150deg)";
-  document.getElementById("boxArea").style.display = "none";
-  document.getElementById("final").style.display = "block";
-  startFlowers();
+  setTimeout(() => {
+    final.style.display = "block";
+  }, 2000);
 }
 
-function startFlowers() {
-  setInterval(() => {
-    for(let i=0;i<12;i++){
-      let f = document.createElement("div");
-      f.className = "flower";
-      f.innerHTML = ["🌹","🌺","💖","❤️","🤍","💐","💮","🌷","🪷","🌸","🏵️","🪻","🌻","🌼"][Math.floor(Math.random()*4)];
-      f.style.left = Math.random()*100 + "vw";
-      f.style.animationDuration = (3 + Math.random()*3) + "s";
-      document.body.appendChild(f);
-      setTimeout(() => f.remove(), 6000);
-    }
-  }, 300);
+function createFlower() {
+  const flower = document.createElement("div");
+  flower.className = "flower";
+  flower.innerText = flowers[Math.floor(Math.random() * flowers.length)];
+  flower.style.left = Math.random() * 100 + "vw";
+  flower.style.fontSize = Math.random() * 20 + 20 + "px";
+  flower.style.animationDuration = Math.random() * 3 + 4 + "s";
+  document.body.appendChild(flower);
+  setTimeout(() => flower.remove(), 8000);
 }
 </script>
 
